@@ -1,32 +1,20 @@
+import java.util.Random;
+
 public class HomeWork8 {
-
-    public static boolean numberFilter(int num) {
-
-        while (num > 0) {
-            int result = num % 10;
-            if (result == 4 || result == 9) {
-                return true;
-            } else {
-                num = num / 10;
-            }
-        }
-        return false;
-    }
-
     public static void main(String[] args) {
+        Random random = new Random();
 
-        int shuttleNum = 1;
-        int count = 0;
-        System.out.println("Shuttle numbers: ");
-        while (true) {
-            if (!HomeWork8.numberFilter(shuttleNum)) {
-                System.out.print(shuttleNum + ", ");
-                count++;
-            }
-            shuttleNum++;
-            if (count == 100) {
-                break;
-            }
+        int [] mas = {3, 5 ,9};
+        int tent = 1;
+        for (int el: mas) {
+            int num = random.nextInt(10);
+           if (el==num){
+               System.out.println("Ви вгадали число " + el + " з " + tent + "-го разу!");
+               break;
+           }else {
+               System.out.println("Спроба " + tent + " невдала! Загадане число " + num);
+               tent++;
+           }
         }
     }
 }
